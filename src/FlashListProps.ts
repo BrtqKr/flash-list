@@ -219,6 +219,11 @@ export interface FlashListProps<TItem> extends ScrollViewProps {
   onBlankArea?: BlankAreaEventHandler;
 
   /**
+   * Called once when the scroll position gets within onStartReachedThreshold of the rendered content.
+   */
+  onStartReached?: (() => void) | null | undefined;
+
+  /**
    * Called once when the scroll position gets within onEndReachedThreshold of the rendered content.
    */
   onEndReached?: (() => void) | null | undefined;

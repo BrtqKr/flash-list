@@ -54,6 +54,15 @@ export default class BidirectionalList extends React.Component<BidirectionalList
             return { elems };
           });
         }}
+        onStartReached={() => {
+          //   os.log("TEST");
+          //   // Since FlatList is a pure component, data reference should change for a render
+          const elems = [...this.state.elems];
+          elems.push(...this._generateArray(elems.length, 20, true));
+          this.setState(() => {
+            return { elems };
+          });
+        }}
         initialScrollIndex={9}
         estimatedFirstItemOffset={900}
         onEndReachedThreshold={0.2}

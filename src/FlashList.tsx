@@ -184,6 +184,7 @@ class FlashList<T> extends React.PureComponent<
 
     if (nextProps.data !== prevState.data) {
       newState.data = nextProps.data;
+      // brtqkr TODO: Adjust first index for the onStartReachedScenario
       newState.dataProvider = prevState.dataProvider.cloneWithRows(
         nextProps.data as any[]
       );
@@ -266,6 +267,10 @@ class FlashList<T> extends React.PureComponent<
       flashListProps
     );
   }
+
+  private onStartReached = () => {
+    this.props.onStartReached?.();
+  };
 
   private onEndReached = () => {
     this.props.onEndReached?.();
@@ -367,6 +372,7 @@ class FlashList<T> extends React.PureComponent<
           forceNonDeterministicRendering
           renderItemContainer={this.itemContainer}
           renderContentContainer={this.container}
+          onStartReached={this.onStartReached}
           onEndReached={this.onEndReached}
           onEndReachedThresholdRelative={onEndReachedThreshold || undefined}
           extendedState={this.state.extraData}
