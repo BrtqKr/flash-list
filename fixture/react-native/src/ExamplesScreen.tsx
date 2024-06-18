@@ -22,6 +22,7 @@ export const ExamplesScreen = () => {
   const data: ExampleItem[] = [
     { title: "List", destination: "List" },
     { title: "PaginatedList", destination: "PaginatedList" },
+    { title: "BidirectionalList", destination: "BidirectionalList" },
     { title: "Reminders", destination: "Reminders" },
     { title: "Twitter Timeline", destination: "Twitter" },
     {
